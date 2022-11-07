@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace SD_Assign_Mediator_Pattern_Design.Airlines
 {
-    internal class IranAirline
+    public class IranAirline
     {
     }
 }
 
 
-mohebrahmani780
