@@ -9,7 +9,7 @@ namespace SD_Assign_Mediator_Pattern_Design
     public class Customer:ICustomer
     {
         int ID { get; set; }
-        string FirstName { get; set; }
+        string FirstName { get; set; } = null!; 
         string LastName { get; set; }
         int PhoneNumber { get; set; }
         string Email { get; set; }
