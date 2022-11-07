@@ -16,7 +16,11 @@ namespace SD_Assign_Mediator_Pattern_Design
         int Crew { get; set; }
         int MemberBenifits { get; set; }
 
-        public virtual void ChangeFlight();
-        public virtual void CancelFlight();
+        public abstract void ChangeFlight();
+        public abstract void CancelFlight();
+
+        public abstract void GetFlightStatus();
+
+        
     }
 }

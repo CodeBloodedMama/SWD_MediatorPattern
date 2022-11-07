@@ -7,5 +7,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
 {
     public class TravelAgency
     {
+
+        
     }
 }
