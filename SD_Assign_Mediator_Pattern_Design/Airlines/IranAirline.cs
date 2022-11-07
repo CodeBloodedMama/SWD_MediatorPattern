@@ -24,7 +24,9 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             Console.WriteLine("The flight status is: ");
         }
 
-        
+        public int FlightNumber { get; set; }
+
+
     }
 }
 
