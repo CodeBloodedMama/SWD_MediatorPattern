@@ -9,6 +9,8 @@ namespace SD_Assign_Mediator_Pattern_Design
     {
        //public bool FullBooked { get; set; }
 
+        
+
 
        
         public int Duration = 0;
