@@ -12,19 +12,37 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
     {
         private TurkishAirLine turkishAirLine = new TurkishAirLine();
         private NorwegianAirline norwegianAirline = new NorwegianAirline();
+        private KLMAirline KLMAirline = new KLMAirline();
+        private IranAirline IranAirline = new IranAirline();
+        
+        
         private int TurkishAirlinePrice = 0;
         private int NorwegianAirlinePrice = 0;
+        private int IranAirlinePrice = 0;
+        private int KLMAirlinePrice = 0; 
+        
+        
+        
         private int TurkishAirlineStops = 0;
         private int NorwegianAirlineStops = 0;
+        private int IranAirlineStop = 0;
+        private int KLMAirlineStop = 0; 
+
+        
         private int TotalPassenger = 0;
+        
         private int TurkishAirlineDuration = 0;
         private int NorwegianAirlineDuration = 0;
+        private int KLMAirlineDuration = 0;
+        private int IranAirlineDuration = 0;
+        
 
 
         public void FindCheapestTickets(string departure, string arrival, int passengers)
         {
             TurkishAirlinePrice = turkishAirLine.CalculatePriceOfRoute(departure, arrival,passengers);
             NorwegianAirlinePrice = norwegianAirline.CalculatePriceOfRoute(departure, arrival, passengers);
+            IranAirlinePrice = IranAirline.CalculatePriceOfRoute(departure, arrival, passengers);
 
             if(TurkishAirlinePrice < NorwegianAirlinePrice)
                 Console.WriteLine(turkishAirLine.NameOfAirline + " has the cheapest price : " + TurkishAirlinePrice);
