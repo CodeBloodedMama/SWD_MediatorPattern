@@ -23,6 +23,29 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
         private string Arrival = null;
         private int NumberOfPassengers;
 
+        public List<AbstractAirLine> AirlineList = new List<AbstractAirLine>();
+
+
+        public void AddAirline(AbstractAirLine airline)
+        {
+            AirlineList.Add(airline);
+        }
+
+        public void RemoveAirline(AbstractAirLine airline)
+        {
+            AirlineList.Remove(airline);
+        }
+
+        public void Send(string message, AbstractAirLine airline)
+        {
+            foreach (var item in AirlineList)
+            {
+                if (item != airline)
+                {
+                    item.Notify(message);
+                }
+            }
+        }
 
         public void FindCheapestTickets(string departure, string arrival, int passengers)
         {

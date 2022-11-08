@@ -7,18 +7,14 @@ namespace SD_Assign_Mediator_Pattern_Design
 {
     public abstract class AbstractAirLine
     {
-       //public bool FullBooked { get; set; }
+        //public bool FullBooked { get; set; }
 
-        
-
-
-       
         public int Duration = 0;
         public int stops = 0;
         public static double Discount { get; set; }
         public string NameOfAirline = "";
         public double Rate = 4.4;
-        public static double Price = 0.0;
+        public double Price = 0.0;
         public bool Available = true;
 
 
@@ -30,5 +26,13 @@ namespace SD_Assign_Mediator_Pattern_Design
         public abstract string FindDeparture(string departure);
         public abstract string FindArrival(string arrival);
         public abstract DateTime GetDepartureDate(string departure, string arrival);
+
+        public abstract void CancelFlight();
+        public abstract void GetFlightStatus();
+        public abstract void GetFlightInfo(string departure, string arrival);
+        internal abstract void Notify(string message);
+        //public double Rate = ;
+
+
     }
 }

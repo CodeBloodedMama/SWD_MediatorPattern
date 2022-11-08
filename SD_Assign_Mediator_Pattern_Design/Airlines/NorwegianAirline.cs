@@ -98,5 +98,25 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
                 Price = passenger * 200;
             return Price;
         }
+
+        public override void CancelFlight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GetFlightStatus()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GetFlightInfo(string departure, string arrival)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void Notify(string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -19,7 +19,5 @@ namespace SD_Assign_Mediator_Pattern_Design.Interface
         void AskTravelAgencyForStopsBetweenDepartureAndArrival(string Departure, string Arrival);
         void BookTicket(string Departure, string Arrival, int Passenger);
 
-        void AskTravelAgencyForFastestRoute(string Departure, string Arrival);
-        void AskTravelAgencyForStopsBetweenDepartureAndArrival(string v1, string v2);
     }
 }

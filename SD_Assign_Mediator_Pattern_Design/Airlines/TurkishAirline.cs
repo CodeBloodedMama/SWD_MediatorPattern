@@ -7,13 +7,14 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
 {
     public class TurkishAirLine : AbstractAirLine 
     {
-        public string NameOfAirline = "Turkish Airlines";
+        public new string NameOfAirline = "Turkish Airlines";
         public string[] Departures = { "Copenhagen", "London", "Paris" };
         public string[] Arrivals = { "Turkiye", "Hamburg", "USA","Germany" };
         public DateTime CPHGER = new DateTime(2023, 09, 25);
         public DateTime LONHAM = new DateTime(2022, 1, 2);
         public DateTime INDFRANK = new DateTime(2023, 07, 05);
-        public double Rate = 3.4;
+        public new double Rate = 3.4;
+        
 
 
         public override string FindDeparture(string departure)
@@ -99,6 +100,26 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
                 Price = passenger * 100;
             return Price;
 
+        }
+
+        public override void CancelFlight()
+        {
+            
+        }
+
+        public override void GetFlightStatus()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GetFlightInfo(string departure, string arrival)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal override void Notify(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
