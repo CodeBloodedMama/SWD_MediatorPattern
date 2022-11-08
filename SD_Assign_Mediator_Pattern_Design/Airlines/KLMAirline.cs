@@ -10,7 +10,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
     {
         public string[] Departures = { "Copenhagen", "London", "Paris", "Crotia", "India", "Malaga" };
         public string[] Arrivals = { "Turkiye", "Hamburg", "USA", "Frankfurt", "Billund", "Barcelona" };
-        public string NameOfAirline = "KLM Airline";
+        public new string NameOfAirline = "KLM Airline";
         //public double Rate = ;
 
         public int CalculatePriceOfRoute(string departure, string arrival, int passengers)

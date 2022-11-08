@@ -11,14 +11,15 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
     {
         public string[] Departures = { "Copenhagen", "London", "Paris", "Croatia" };
         public string[] Arrivals = { "Turkiye", "Hamburg", "USA", "Frankfurt" };
-        public string NameOfAirline = "Iran Airline";
+        public new string NameOfAirline = "Iran Airline";
         //public double Rate = ;
 
-        public int CalculatePriceOfRoute(string departure, string arrival, int passengers)
+        public double CalculatePriceOfRoute(string departure, string arrival, int passengers)
         {
             if (departure == "Copenhagen" && arrival == "Hamburg")
             {
-                this.Price = passengers * 150;
+                
+               IranAirline.Price = passengers * 150;
                 return Price;
             }
 

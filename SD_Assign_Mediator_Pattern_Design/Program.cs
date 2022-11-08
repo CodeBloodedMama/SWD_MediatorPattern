@@ -22,6 +22,9 @@ customer.AskTravelAgencyForTopRatedAirLines();
 customer.AskTravelAgencyForFastestRoute("Oslo", "London");
 
 
+travelAgency.FindRouteStops("copenhagen", "dubai");
+
+
 
 
 
