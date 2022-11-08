@@ -14,6 +14,8 @@ namespace SD_Assign_Mediator_Pattern_Design.Interface
         void AskTravelAgencyForCheapAndFastFlight(string Departure, string Arrival, int Passenger);
         void AskTravelAgencyForDiscount(string Departure, string Arrival, int Passenger);
 
+        void AskTravelAgencyForFastestRoute(string Departure, string Arrival);
+        
 
     }
 }
