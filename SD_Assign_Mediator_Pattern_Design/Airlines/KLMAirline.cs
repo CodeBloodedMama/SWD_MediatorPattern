@@ -17,7 +17,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
         {
             if (departure == "Copenhagen" && arrival == "Hamburg")
             {
-                this.Price = passengers * 225;
+                KLMAirline.Price = passengers * 225;
                 return Price;
             }
 
