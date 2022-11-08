@@ -40,5 +40,7 @@ namespace SD_Assign_Mediator_Pattern_Design
         public abstract void GetFlightStatus();
 
         
+
+        
     }
 }
