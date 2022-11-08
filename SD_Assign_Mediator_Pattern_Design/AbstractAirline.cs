@@ -22,6 +22,8 @@ namespace SD_Assign_Mediator_Pattern_Design
         //public int ShortestRute { get; set; }
         //public bool FullBooked { get; set; }
 
+        
+
 
         public int Price = 0;
         public int Duration = 0;
