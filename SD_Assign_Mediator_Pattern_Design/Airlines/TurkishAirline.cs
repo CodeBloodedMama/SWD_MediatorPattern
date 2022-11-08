@@ -9,14 +9,15 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
     {
         public string[] Departures = { "Copenhagen", "London", "Paris" };
         public string[] Arrivals = { "Turkiye", "Hamburg", "USA" };
-        public string NameOfAirline = "Turkish Airline";
-        public double Rate = 3.4;
+        public DateTime CPHGER = new DateTime(2023, 09, 25);
+        public DateTime LONHAM = new DateTime(2022, 1, 2);
+        public DateTime INDFRANK = new DateTime(2023, 07, 05);
 
-        public int CalculatePriceOfRoute(string departure, string arrival, int passengers)
+        public double CalculatePriceOfRoute(string departure, string arrival, int passengers)
         {
             if (departure == "Copenhagen" && arrival == "Hamburg")
             {
-                this.Price = passengers * 100;
+                Price = passengers * 100;
                 return Price;
             }
 
@@ -44,6 +45,14 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
+        public double MakeDiscount(string departure, string arrival, int passenger)
+        {
+            if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
+                Price = passenger * 100;
+            Discount = ((Price * 2 / 100) + passenger * 1 / 100);
+            return Discount;
+        }
+
 
 
         public override void CancelFlight()
@@ -51,10 +60,6 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             Console.WriteLine("Turkish Airline has cancelled the flight");
         }
 
-        public override void ChangeFlight()
-        {
-            Console.WriteLine("The flight has been changed");
-        }
 
         public override void GetFlightStatus()
         {

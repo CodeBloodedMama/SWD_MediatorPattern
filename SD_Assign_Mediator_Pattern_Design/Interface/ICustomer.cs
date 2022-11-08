@@ -8,14 +8,11 @@ namespace SD_Assign_Mediator_Pattern_Design.Interface
     public interface ICustomer
     {
 
-        int AddNumberOfPassengers(int passenger);
-        void BookTickets();
+        void AddNumberOfPassengers(int passenger);
         void AskTravelAgencyForTopRatedAirLines();
-        void AskTravelAgencyForCheapestFlight();
-        void AskTravelAgencyForCheapAndFastFlight();
-        void AskTravelAgencyForDiscount();
-        void AddDepartureArrival(string departure, string Arrival);
-        void PayForTickets();
+        void AskTravelAgencyForCheapestFlight(string Departure, string Arrival, int Passenger);
+        void AskTravelAgencyForCheapAndFastFlight(string Departure, string Arrival, int Passenger);
+        void AskTravelAgencyForDiscount(string Departure, string Arrival, int Passenger);
 
 
     }

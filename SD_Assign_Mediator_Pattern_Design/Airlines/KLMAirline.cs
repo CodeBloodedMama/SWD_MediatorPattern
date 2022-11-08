@@ -13,10 +13,6 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             Console.WriteLine("KLM Airline has cancelled the flight");
         }
 
-        public override void ChangeFlight()
-        {
-            Console.WriteLine("The flight has been changed");
-        }
 
         public override void GetFlightStatus()
         {

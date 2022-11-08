@@ -8,63 +8,52 @@ namespace SD_Assign_Mediator_Pattern_Design
 {
     public class Customer:ICustomer
     {
-        int ID { get; set; }
-        string FirstName { get; set; } = null!; 
-        string LastName { get; set; }
-        int PhoneNumber { get; set; }
-        string Email { get; set; }
-        string Gender { get; set; }
-        public int TotalPassenger = 0;
-        public string Departure_;
-        public string Arrival_;
-
-        public void AskTravelAgencyForTopRatedAirLines()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public int AddNumberOfPassengers(int NumberOfPassengers)
-        {
-            if(NumberOfPassengers < 0 & NumberOfPassengers> 5)
-                Console.WriteLine("Please add number of passenger between 0-5");
-            TotalPassenger = NumberOfPassengers;
-            return TotalPassenger;
-        }
-
-        public void BookTickets()
-        {
-            throw new NotImplementedException();
-        }
-
+        private ITravelAgency travelAgency;
       
-
-        public void AskTravelAgencyForCheapestFlight()
+        public Customer(ITravelAgency travelAgency_)
         {
-            throw new NotImplementedException();
+            travelAgency = travelAgency_;
+
+        }
+      public void AskTravelAgencyForTopRatedAirLines()
+        {
+            travelAgency.FindTopRatetAirLines();
         }
 
-        public void AskTravelAgencyForCheapAndFastFlight()
+
+        public void AddNumberOfPassengers(int NumberOfPassengers)
         {
-            throw new NotImplementedException();
+            travelAgency.CalculateNumberOfPassenger(NumberOfPassengers);
         }
 
-        public void AskTravelAgencyForDiscount()
+
+
+        public void AskTravelAgencyForCheapestFlight(string Departure, string Arrival, int Passenger)
         {
-            throw new NotImplementedException();
+           
+            travelAgency.FindCheapestTickets(Departure,Arrival,Passenger);
         }
 
-        public void AddDepartureArrival(string Departure, string Arrival)
+        public void AskTravelAgencyForCheapAndFastFlight(string Departure, string Arrival, int Passenger)
         {
-            if(Departure == null)
-                Console.WriteLine("your should add both departure and arrival");
-            Departure_ = Departure;
-            Arrival_ = Arrival;
+            travelAgency.FindCheapestAndFastestFlight(Departure, Arrival, Passenger);
         }
 
-        public void PayForTickets()
+
+        public void AskTravelAgencyForDiscount(string Departure, string Arrival, int Passenger)
         {
-            throw new NotImplementedException();
+            travelAgency.FindDiscountOnFlights( Departure,  Arrival,  Passenger);
         }
+
+        public void AskTravelAgencyForFastestRoute(string Departure, string Arrival)
+        {
+            travelAgency.FindShortestRute(Departure, Arrival);
+        }
+
+        public void AskTravelAgencyForStopsBetweenDepartureAndArrival(string Departure, string Arrival)
+        {
+            travelAgency.FindRouteStops(Departure,Arrival);
+        }
+
     }
 }

@@ -10,15 +10,19 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
 {
     public class TravelAgency:ITravelAgency
     {
-        private TurkishAirLine turkishAirLine = new TurkishAirLine();
-        private NorwegianAirline norwegianAirline = new NorwegianAirline();
-        private int TurkishAirlinePrice = 0;
-        private int NorwegianAirlinePrice = 0;
+        private TurkishAirLine turkishAirLine = new();
+        private NorwegianAirline norwegianAirline = new ();
+        private double TurkishAirlinePrice = 0.0;
+        private double NorwegianAirlinePrice = 0.0;
         private int TurkishAirlineStops = 0;
         private int NorwegianAirlineStops = 0;
         private int TotalPassenger = 0;
         private int TurkishAirlineDuration = 0;
         private int NorwegianAirlineDuration = 0;
+        private string Departure;
+        private string Arrival;
+        private int NumberOfPassenger;
+        private int NumberOfPassengers;
 
 
         public void FindCheapestTickets(string departure, string arrival, int passengers)
@@ -34,8 +38,8 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
 
         public void FindRouteStops(string departure, string arrival)
         {
-            TurkishAirlineStops = turkishAirLine.CalculateDurationOfRoute(departure, arrival);
-            NorwegianAirlineStops = norwegianAirline.CalculateDurationOfRoute(departure, arrival);
+            TurkishAirlineStops = turkishAirLine.CalculateStopsOfRoute(departure, arrival);
+            NorwegianAirlineStops = norwegianAirline.CalculateStopsOfRoute(departure, arrival);
             
             if (TurkishAirlineStops < NorwegianAirlineStops)
                 Console.WriteLine(turkishAirLine.NameOfAirline+" has " + TurkishAirlineStops + " stops to destination");
@@ -86,22 +90,35 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
             return TotalPassenger;
         }
 
+        public void DisplayInterfaceToCustomer()
+        {
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine();
+            Console.WriteLine("Welcome to Our Travel Agency");
+            Console.WriteLine();
+            Console.WriteLine("----------------------------------");
+            Console.WriteLine("Press A to see the list of all airlines \n" +
+                              "Press B to book ticket\n" +
+                              "Press D to get discount, if available");
+        }
+
+        public void HandleBooking()
+        {
+            FindCheapestAndFastestFlight(Departure, Arrival, NumberOfPassengers);
+        }
      
-        public void FindDiscountOnFlights(string departure, string arrival, int Date)
+        public void FindDiscountOnFlights(string Departure, string Arrival, int Passenger)
         {
-            throw new NotImplementedException();
+            double TurkDisc = turkishAirLine.MakeDiscount(Departure,Arrival, NumberOfPassengers);
+            double NorDisc = norwegianAirline.MakeDiscount(Departure, Arrival, NumberOfPassengers);
+
+            Console.WriteLine("AirLines with their Discounts");
+            Console.WriteLine("Turkish Airline has " + TurkDisc + " % discount");
+            Console.WriteLine("Norwegian Airline has " + NorDisc + " % discount");
+
         }
 
-        public void FindDayFlights(string departure, string arrival)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void FindNightFlights(string departure, string arrival)
-        {
-            throw new NotImplementedException();
-        }
-
+   
         public void HandlerInqueryFromCustomer()
         {
             throw new NotImplementedException();
