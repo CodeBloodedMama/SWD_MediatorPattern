@@ -19,9 +19,8 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
         private int TotalPassenger = 0;
         private int TurkishAirlineDuration = 0;
         private int NorwegianAirlineDuration = 0;
-        private string Departure;
-        private string Arrival;
-        private int NumberOfPassenger;
+        private string Departure = null;
+        private string Arrival = null;
         private int NumberOfPassengers;
 
 
@@ -41,9 +40,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
             TurkishAirlineStops = turkishAirLine.CalculateStopsOfRoute(departure, arrival);
             NorwegianAirlineStops = norwegianAirline.CalculateStopsOfRoute(departure, arrival);
             
-            if (TurkishAirlineStops < NorwegianAirlineStops)
                 Console.WriteLine(turkishAirLine.NameOfAirline+" has " + TurkishAirlineStops + " stops to destination");
-            else
                 Console.WriteLine(norwegianAirline.NameOfAirline + " has  " + NorwegianAirlineStops + " stops to destination");
 
         }
@@ -54,9 +51,9 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
             NorwegianAirlineDuration = norwegianAirline.CalculateDurationOfRoute(departure, arrival);
 
             if (TurkishAirlineDuration < NorwegianAirlineDuration)
-                Console.WriteLine(turkishAirLine.NameOfAirline + " has the shortest trip with duration of " + TurkishAirlineDuration + " stops");
+                Console.WriteLine(turkishAirLine.NameOfAirline + " has the shortest trip with " + TurkishAirlineDuration + " stops");
             else
-                Console.WriteLine(norwegianAirline.NameOfAirline + " has the shortest trip with duration of " + NorwegianAirlineDuration + " stops");
+                Console.WriteLine(norwegianAirline.NameOfAirline + " has the shortest trip with " + NorwegianAirlineDuration + " stops");
 
         }
 
@@ -79,6 +76,11 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
             if (turkishAirLine.Rate > norwegianAirline.Rate)
                 Console.WriteLine(turkishAirLine.NameOfAirline + " by having rate of " + turkishAirLine.Rate +
                                   " is toprated Airline");
+            else
+            {
+                Console.WriteLine(norwegianAirline.NameOfAirline + " by having rate of " + norwegianAirline.Rate +
+                                  " is toprated Airline");
+            }
         }
         
       
@@ -90,27 +92,26 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
             return TotalPassenger;
         }
 
-        public void DisplayInterfaceToCustomer()
+      
+        public void GetDepartureDateTime(string departure,string arrival)
         {
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine();
-            Console.WriteLine("Welcome to Our Travel Agency");
-            Console.WriteLine();
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine("Press A to see the list of all airlines \n" +
-                              "Press B to book ticket\n" +
-                              "Press D to get discount, if available");
+          string TurkishAirlineDepatureDate =  "Departure date for turkish airline " + Convert.ToString(turkishAirLine.GetDepartureDate(departure, arrival));
+          string NorwegianAirlineDepartureDate =
+              "\nDeparture date for Norwegian airline " + Convert.ToString(norwegianAirline.GetDepartureDate(departure,arrival));
+
+          Console.WriteLine(TurkishAirlineDepatureDate + NorwegianAirlineDepartureDate);
         }
 
-        public void HandleBooking()
+        public string BookTicketForCusotmer()
         {
-            FindCheapestAndFastestFlight(Departure, Arrival, NumberOfPassengers);
+            throw new NotImplementedException();
         }
+
      
         public void FindDiscountOnFlights(string Departure, string Arrival, int Passenger)
         {
-            double TurkDisc = turkishAirLine.MakeDiscount(Departure,Arrival, NumberOfPassengers);
-            double NorDisc = norwegianAirline.MakeDiscount(Departure, Arrival, NumberOfPassengers);
+            double TurkDisc = turkishAirLine.MakeDiscount(Departure,Arrival, Passenger);
+            double NorDisc = norwegianAirline.MakeDiscount(Departure, Arrival, Passenger);
 
             Console.WriteLine("AirLines with their Discounts");
             Console.WriteLine("Turkish Airline has " + TurkDisc + " % discount");
@@ -118,15 +119,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
 
         }
 
-   
-        public void HandlerInqueryFromCustomer()
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        public void HandlePaymentFromCustomer()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

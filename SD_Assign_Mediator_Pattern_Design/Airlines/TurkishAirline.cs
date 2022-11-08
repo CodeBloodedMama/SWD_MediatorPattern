@@ -7,15 +7,54 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
 {
     public class TurkishAirLine : AbstractAirLine 
     {
+        public string NameOfAirline = "Turkish Airlines";
         public string[] Departures = { "Copenhagen", "London", "Paris" };
-        public string[] Arrivals = { "Turkiye", "Hamburg", "USA" };
+        public string[] Arrivals = { "Turkiye", "Hamburg", "USA","Germany" };
         public DateTime CPHGER = new DateTime(2023, 09, 25);
         public DateTime LONHAM = new DateTime(2022, 1, 2);
         public DateTime INDFRANK = new DateTime(2023, 07, 05);
+        public double Rate = 3.4;
 
-        public double CalculatePriceOfRoute(string departure, string arrival, int passengers)
+
+        public override string FindDeparture(string departure)
         {
-            if (departure == "Copenhagen" && arrival == "Hamburg")
+            for (int i = 0; i < Departures.Length; i++)
+            {
+                if (Departures[i] == departure)
+                    return Departures[i];
+            }
+            return "";
+        }
+
+        public override string FindArrival(string arrival)
+        {
+            for (int i = 0; i < Arrivals.Length; i++)
+            {
+                if (Arrivals[i] == arrival)
+                    return Arrivals[i];
+            }
+            return "";
+        }
+
+        public override DateTime GetDepartureDate(string departure, string arrival)
+        {
+            string departure_ = FindDeparture(departure);
+            string arrival_ = FindArrival(arrival);
+            if (departure_== "Copenhagen" && arrival_ == "Germany")
+                return CPHGER;
+            if (departure_ == "London" && arrival_ == "Hamburg")
+                return LONHAM;
+            if (departure_ == "India" && arrival_ == "Frankfurt")
+                return INDFRANK;
+            else
+            {
+                return new DateTime(0000, 00, 00);
+            }
+        }
+
+        public override double CalculatePriceOfRoute(string departure, string arrival, int passengers)
+        {
+            if (departure == "Copenhagen" && arrival == "Germany")
             {
                 Price = passengers * 100;
                 return Price;
@@ -24,7 +63,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
-        public int CalculateDurationOfRoute(string departure, string arrival)
+        public override int CalculateDurationOfRoute(string departure, string arrival)
         {
             if (departure == "Copenhagen" && arrival == "Hamburg")
             {
@@ -35,9 +74,9 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
-        public int CalculateStopsOfRoute(string departure, string arrival)
+        public override int CalculateStopsOfRoute(string departure, string arrival)
         {
-            if (departure == "Copenhagen" && arrival == "Hamburg")
+            if (departure == "Copenhagen" && arrival == "Germany")
             {
                 return this.stops = 3;
             }
@@ -45,7 +84,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
-        public double MakeDiscount(string departure, string arrival, int passenger)
+        public override double MakeDiscount(string departure, string arrival, int passenger)
         {
             if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
                 Price = passenger * 100;
@@ -54,16 +93,12 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
         }
 
 
-
-        public override void CancelFlight()
+        public override double CalculatePriceForRoute(string departure, string arrival, int passenger)
         {
-            Console.WriteLine("Turkish Airline has cancelled the flight");
-        }
+            if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
+                Price = passenger * 100;
+            return Price;
 
-
-        public override void GetFlightStatus()
-        {
-            Console.WriteLine("The flight status is: ");
         }
     }
 }

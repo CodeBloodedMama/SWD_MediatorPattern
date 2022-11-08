@@ -14,8 +14,8 @@ namespace SD_Assign_Mediator_Pattern_Design.Interface
         void FindTopRatetAirLines();
         void FindDiscountOnFlights(string Departure, string Arrival, int Passenger);
         void FindRouteStops(string departure, string arrival);
-        public int CalculateNumberOfPassenger(int passengers);
-        void HandlerInqueryFromCustomer();
-        void HandlePaymentFromCustomer();
+        int CalculateNumberOfPassenger(int passengers);
+        void GetDepartureDateTime(string departure,string arrival);
+        string BookTicketForCusotmer();
     }
 }

@@ -15,7 +15,13 @@ namespace SD_Assign_Mediator_Pattern_Design
             travelAgency = travelAgency_;
 
         }
-      public void AskTravelAgencyForTopRatedAirLines()
+
+        public void FindAllAirlines()
+        {
+            travelAgency.FindAirLines();
+        }
+
+        public void AskTravelAgencyForTopRatedAirLines()
         {
             travelAgency.FindTopRatetAirLines();
         }
@@ -43,6 +49,16 @@ namespace SD_Assign_Mediator_Pattern_Design
         public void AskTravelAgencyForDiscount(string Departure, string Arrival, int Passenger)
         {
             travelAgency.FindDiscountOnFlights( Departure,  Arrival,  Passenger);
+        }
+
+        public void AskForDepartureTime(string Departure, string Arrival)
+        {
+            travelAgency.GetDepartureDateTime(Departure, Arrival);
+        }
+
+        public void BookTicket(string Departure, string Arrival, int Passenger)
+        {
+            throw new NotImplementedException();
         }
 
         public void AskTravelAgencyForFastestRoute(string Departure, string Arrival)

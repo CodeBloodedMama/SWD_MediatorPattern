@@ -8,17 +8,52 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
 {
     public class NorwegianAirline : AbstractAirLine
     {
-
+        public string NameOfAirline = "Norwegian Airlines";
         public string[] Departures = { "Copenhagen", "London", "Paris", "Crotia", "India" };
-        public string[] Arrivals = { "Turkiye", "Hamburg", "USA", "Frankfurt", "Billund" };
+        public string[] Arrivals = { "Turkiye", "Hamburg", "USA", "Frankfurt", "Billund", "Germany" };
         public DateTime CPHGER = new DateTime(2023, 12, 25);
         public DateTime LONHAM = new DateTime(2022, 11, 2);
         public DateTime INDFRANK = new DateTime(2023, 03, 05);
+        public double Rate = 4.4;
         public int AirlinesAvailableSeats = 50;
 
-        public double CalculatePriceOfRoute(string departure, string arrival, int passengers)
+        public override string FindDeparture(string departure)
         {
-            if (departure == "Copenhagen" && arrival == "Hamburg")
+            for (int i = 0; i < Departures.Length; i++)
+            {
+                if (Departures[i] == departure)
+                    return Departures[i];
+            }
+            return "";
+        }
+
+        public override string FindArrival(string arrival)
+        {
+            for (int i = 0; i < Arrivals.Length; i++)
+            {
+                if (Arrivals[i] == arrival)
+                    return Arrivals[i];
+            }
+            return "";
+        }
+
+        public override DateTime GetDepartureDate(string departure, string arrival)
+        {
+            if (FindDeparture(departure) == "Copenhagen" && FindArrival(arrival) == "Germany")
+                return CPHGER;
+            if (FindDeparture(departure) == "London" && FindArrival(arrival) == "Hamburg")
+                return LONHAM;
+            if (FindDeparture(departure) == "India" && FindArrival(arrival) == "Frankfurt")
+                return INDFRANK;
+            else
+            {
+                return new DateTime(0000, 00, 00);
+            }
+        }
+
+        public override double CalculatePriceOfRoute(string departure, string arrival, int passengers)
+        {
+            if (departure == "Copenhagen" && arrival == "Germany")
             {
                 Price = passengers * 200;
                 return Price;
@@ -27,9 +62,9 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
-        public int CalculateDurationOfRoute(string departure, string arrival)
+        public override int CalculateDurationOfRoute(string departure, string arrival)
         {
-            if (departure == "Copenhagen" && arrival == "Hamburg")
+            if (departure == "Copenhagen" && arrival == "Germany")
             {
                 this.Duration = 2;
                 return Duration;
@@ -38,7 +73,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
-        public int CalculateStopsOfRoute(string departure, string arrival)
+        public override int CalculateStopsOfRoute(string departure, string arrival)
         {
             if (departure == "Copenhagen" && arrival == "Hamburg")
             { 
@@ -49,7 +84,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
-        public double MakeDiscount(string departure, string arrival, int passenger)
+        public override double MakeDiscount(string departure, string arrival, int passenger)
         {
             if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
                 Price = passenger * 150;
@@ -57,14 +92,11 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return Discount;
         }
 
-        public override void CancelFlight()
+        public override double CalculatePriceForRoute(string departure, string arrival, int passenger)
         {
-            Console.WriteLine("Norwegian Airline has cancelled the flight");
-        }
-
-     public override void GetFlightStatus()
-        {
-            Console.WriteLine("The flight status is: ");
+            if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
+                Price = passenger * 200;
+            return Price;
         }
     }
 }
