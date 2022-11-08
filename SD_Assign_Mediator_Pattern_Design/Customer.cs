@@ -14,6 +14,15 @@ namespace SD_Assign_Mediator_Pattern_Design
         int PhoneNumber { get; set; }
         string Email { get; set; }
         string Gender { get; set; }
+
+        public AbstractAirLine AbstractAirLine
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public void AddNumberOfPassengers(int passenger)
         {
             throw new NotImplementedException();

@@ -16,6 +16,14 @@ namespace SD_Assign_Mediator_Pattern_Design
         int Crew { get; set; }
         int MemberBenifits { get; set; }
 
+        public Interface.ITravelAgency ITravelAgency
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         public virtual void ChangeFlight();
         public virtual void CancelFlight();
     }

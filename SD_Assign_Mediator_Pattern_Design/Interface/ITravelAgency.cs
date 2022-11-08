@@ -7,6 +7,8 @@ namespace SD_Assign_Mediator_Pattern_Design.Interface
 {
     public interface ITravelAgency
     {
+        Mediator.TravelAgency TravelAgency { get; set; }
+
         void FindCheapestTickets(string departure, string arrival);
         void FindShortestRute(string departure, string arrival);
         void FindCheapestAndFastestFlight(string departure, string arrival);

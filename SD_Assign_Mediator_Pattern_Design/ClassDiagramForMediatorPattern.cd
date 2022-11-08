@@ -1,61 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="SD_Assign_Mediator_Pattern_Design.Customer">
-    <Position X="7.75" Y="3.25" Width="1.5" />
+    <Position X="0.5" Y="3.5" Width="3.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAEAAACEAgACAgAAAwAAAAAAAAAAABAAAAAQIAAg=</HashCode>
+      <HashCode>AAAAAEAAACEAgACAgAAAwAAAAAAAAAAAFAAAAAQIAAg=</HashCode>
       <FileName>Customer.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AbstractAirLine" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="SD_Assign_Mediator_Pattern_Design.TravelAgency">
-    <Position X="3.5" Y="2.5" Width="3.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TravelAgency.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SD_Assign_Mediator_Pattern_Design.AirLines">
-    <Position X="1.5" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>AirLines.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SD_Assign_Mediator_Pattern_Design.TurkishAirLine">
-    <Position X="1.25" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TurkishAirLine.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SD_Assign_Mediator_Pattern_Design.Mediator.TravelAgency">
-    <Position X="11.5" Y="2.25" Width="1.5" />
+    <Position X="3.75" Y="8" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mediator\TravelAgency.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="SD_Assign_Mediator_Pattern_Design.ICustomer">
-    <Position X="7" Y="0.5" Width="3" />
+  <Class Name="SD_Assign_Mediator_Pattern_Design.AbstractAirLine">
+    <Position X="7.25" Y="3" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAEAAAAAgAAAwAAAAAAAAAAABAAAAAQIAAA=</HashCode>
-      <FileName>ICustomer.cs</FileName>
+      <HashCode>gAAAAAAAEAgAIAAAgEAAAAAAAEAQAAAAAAACAQAAACA=</HashCode>
+      <FileName>AbstractAirline.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ITravelAgency" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SD_Assign_Mediator_Pattern_Design.Airlines.IranAirline" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Airlines\IranAirline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SD_Assign_Mediator_Pattern_Design.Airlines.NorwegianAirline" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Airlines\NorwegianAirline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SD_Assign_Mediator_Pattern_Design.Airlines.TurkishAirLine" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Airlines\TurkishAirline.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SD_Assign_Mediator_Pattern_Design.Interface.ITravelAgency">
+    <Position X="8.25" Y="7.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AIIgCAAEQAABAAAAAAAAAQAAAAAAAQAQAAAAAACAAAA=</HashCode>
+      <FileName>Interface\ITravelAgency.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TravelAgency" />
+    </ShowAsAssociation>
   </Interface>
-  <Interface Name="SD_Assign_Mediator_Pattern_Design.ITravelAgency">
-    <Position X="4.5" Y="0.5" Width="2.5" />
+  <Interface Name="SD_Assign_Mediator_Pattern_Design.Interface.ICustomer">
+    <Position X="1.75" Y="0.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AIIgCAAEAAABAAAAAAAAAQAAAAAAAQAQAAAAAACAAAA=</HashCode>
-      <FileName>ITravelAgency.cs</FileName>
+      <HashCode>AAEAAAAAAAEAAAAAgAAAwAAAAAAAAAAABAAAAAQIAAA=</HashCode>
+      <FileName>Interface\ICustomer.cs</FileName>
     </TypeIdentifier>
-  </Interface>
-  <Interface Name="SD_Assign_Mediator_Pattern_Design.IAirLines">
-    <Position X="1.5" Y="0.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>gAAAAAAAEAAAIAAAgEAAAAAAAEAQAAAAAAACAQAAACA=</HashCode>
-      <FileName>IAirLines.cs</FileName>
-    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
