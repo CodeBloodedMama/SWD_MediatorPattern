@@ -7,13 +7,10 @@ namespace SD_Assign_Mediator_Pattern_Design
 {
     public abstract class AbstractAirLine
     {
-        //public bool FullBooked { get; set; }
         public int Duration = 0;
         public int stops = 0;
         public static double Discount { get; set; }
         public static double Price = 0.0;
-        public bool Available = true;
-
 
         public abstract double CalculatePriceOfRoute(string departure, string arrival, int passengers);
         public abstract int CalculateDurationOfRoute(string departure, string arrival);

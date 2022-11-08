@@ -15,7 +15,6 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
         public DateTime LONHAM = new DateTime(2022, 11, 2);
         public DateTime INDFRANK = new DateTime(2023, 03, 05);
         public double Rate = 4.4;
-        public int AirlinesAvailableSeats = 50;
 
         public override string FindDeparture(string departure)
         {

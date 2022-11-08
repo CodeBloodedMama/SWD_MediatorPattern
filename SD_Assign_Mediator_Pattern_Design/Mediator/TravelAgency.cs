@@ -14,7 +14,6 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
     {
         private TurkishAirLine turkishAirLine = new();
         private NorwegianAirline norwegianAirline = new ();
-        private Customer c1;
         private double TurkishAirlinePrice = 0.0;
         private double NorwegianAirlinePrice = 0.0;
         private int TurkishAirlineStops = 0;
