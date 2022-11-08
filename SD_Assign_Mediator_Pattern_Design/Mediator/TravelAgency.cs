@@ -107,17 +107,20 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
      
         public void FindDiscountOnFlights(string departure, string arrival, int Date)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void FindDayFlights(string departure, string arrival)
         {
-            throw new NotImplementedException();
+            if (turkishAirLine.FlightTime(departure, arrival) == "Day")
+                Console.WriteLine(turkishAirLine.NameOfAirline + " has day flight");
+            else
+                Console.WriteLine(norwegianAirline.NameOfAirline + " has day flight");
         }
 
         public void FindNightFlights(string departure, string arrival)
         {
-            throw new NotImplementedException();
+
         }
 
         public void HandlerInqueryFromCustomer()

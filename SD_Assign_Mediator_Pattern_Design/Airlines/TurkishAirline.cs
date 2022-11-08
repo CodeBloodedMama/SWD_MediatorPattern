@@ -44,8 +44,6 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
-
-
         public override void CancelFlight()
         {
             Console.WriteLine("Turkish Airline has cancelled the flight");
