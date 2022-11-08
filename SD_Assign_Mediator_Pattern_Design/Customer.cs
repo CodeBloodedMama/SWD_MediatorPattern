@@ -14,9 +14,22 @@ namespace SD_Assign_Mediator_Pattern_Design
         int PhoneNumber { get; set; }
         string Email { get; set; }
         string Gender { get; set; }
-        public void AddNumberOfPassengers(int passenger)
+        public int TotalPassenger = 0;
+        public string Departure_;
+        public string Arrival_;
+
+        public void AskTravelAgencyForTopRatedAirLines()
         {
             throw new NotImplementedException();
+        }
+
+
+        public int AddNumberOfPassengers(int NumberOfPassengers)
+        {
+            if(NumberOfPassengers < 0 & NumberOfPassengers> 5)
+                Console.WriteLine("Please add number of passenger between 0-5");
+            TotalPassenger = NumberOfPassengers;
+            return TotalPassenger;
         }
 
         public void BookTickets()
@@ -24,10 +37,7 @@ namespace SD_Assign_Mediator_Pattern_Design
             throw new NotImplementedException();
         }
 
-        public void AskTravelAgencyForTopRatedAirLines()
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public void AskTravelAgencyForCheapestFlight()
         {
@@ -42,6 +52,14 @@ namespace SD_Assign_Mediator_Pattern_Design
         public void AskTravelAgencyForDiscount()
         {
             throw new NotImplementedException();
+        }
+
+        public void AddDepartureArrival(string Departure, string Arrival)
+        {
+            if(Departure == null)
+                Console.WriteLine("your should add both departure and arrival");
+            Departure_ = Departure;
+            Arrival_ = Arrival;
         }
 
         public void PayForTickets()

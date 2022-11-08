@@ -7,16 +7,40 @@ namespace SD_Assign_Mediator_Pattern_Design
 {
     public abstract class AbstractAirLine
     {
-        int FirstClass { get; set; }
-        int EconomyClass { get; set; }
-        int Insurance { get; set; }
-        int ExtraLuggage { get; set; }
-        int Services { get; set; }
-        int Property { get; set; }
-        int Crew { get; set; }
-        int MemberBenifits { get; set; }
+        //public int FirstClass { get; set; }
+        //public int EconomyClass { get; set; }
+        //public int Insurance { get; set; }
+        //public int ExtraLuggage { get; set; }
+        //public int Services { get; set; }
+        //public int Property { get; set; }
+        //public int Crew { get; set; }
+        //public int Rate { get; set; }
+        
+        //public int MemberBenifits { get; set; }
+        //public int Discount { get; set; }
+        //public int Tickets { get; set; }
+        //public int ShortestRute { get; set; }
+        //public bool FullBooked { get; set; }
 
-        public virtual void ChangeFlight();
-        public virtual void CancelFlight();
+
+        public int Price = 0;
+        public int Duration = 0;
+        public int stops = 0;
+        public bool Available = true;
+
+        enum DayOrNight
+        {
+            Day,
+            Night
+        }
+
+        public abstract void ChangeFlight();
+        public abstract void CancelFlight();
+
+        public abstract void GetFlightStatus();
+
+        
+
+        
     }
 }
