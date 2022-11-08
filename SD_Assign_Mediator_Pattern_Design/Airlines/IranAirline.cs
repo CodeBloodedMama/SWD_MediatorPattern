@@ -1,23 +1,23 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿////using System;
+////using System.Collections.Generic;
+////using System.Linq;
+////using System.Text;
+////using System.Threading.Tasks;
 
 
-namespace SD_Assign_Mediator_Pattern_Design.Airlines
-{
-    public class IranAirline : AbstractAirLine
-    {
-        public override void CancelFlight()
-        {
-            Console.WriteLine("Iran Airline has cancelled the flight");
-        }
-        
-//        public override void GetFlightStatus()
+//namespace SD_Assign_Mediator_Pattern_Design.Airlines
+//{
+//    public class IranAirline : AbstractAirLine
+//    {
+//        public override void CancelFlight()
 //        {
-//            Console.WriteLine("The flight status is: ");
+//            Console.WriteLine("Iran Airline has cancelled the flight");
 //        }
+
+//        //public override void GetFlightStatus()
+//        //{
+//        //    Console.WriteLine("The flight status is: ");
+//        //}
 
 //        public int FlightNumber { get; set; }
 

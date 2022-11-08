@@ -1,13 +1,13 @@
-﻿using SD_Assign_Mediator_Pattern_Design;
+﻿using System.Net.Mime;
+using SD_Assign_Mediator_Pattern_Design;
 using SD_Assign_Mediator_Pattern_Design.Interface;
 using SD_Assign_Mediator_Pattern_Design.Mediator;
 
 TravelAgency travelAgency = new TravelAgency();
-ICustomer customer = new Customer(travelAgency);
+Customer customer = new Customer(travelAgency);
+travelAgency.customer1 = customer;
 string character = "";
-string Departure = "Copenhagen";
-string Arrival = "Germany";
-int Passengers = 3;
+
 
 Console.WriteLine("-------------------------------------------------------------------");
 Console.WriteLine();
@@ -22,53 +22,20 @@ Console.WriteLine("Press A to show the list of all airlines for customer\n" +
                   "Press D to show discount for customer\n" +
                   "Press R to show stops between depature and arrival for customer\n" +
                   "Press G to show departure time for customer\n" +
-                  "Press B to book ticket for customer" +
                   "Press E to exit the screen");
 while (character != "E")
 {
-    character  = Console.ReadLine();
-    switch (character)
+    character = Console.ReadLine();
+    if (character == "E")
     {
-        case "A":
-        case "a":
-            customer.FindAllAirlines();
-            break;
-        case "C":
-        case "c":
-            customer.AskTravelAgencyForCheapestFlight(Departure,Arrival,Passengers);
-            break;
-        case "S":
-        case "s":
-            customer.AskTravelAgencyForStopsBetweenDepartureAndArrival(Departure,Arrival);
-            break;
-        case "F":
-        case "f":
-            customer.AskTravelAgencyForCheapAndFastFlight(Departure, Arrival, Passengers);
-            break;
-        case "D":
-        case "d":
-            customer.AskTravelAgencyForDiscount(Departure, Arrival, Passengers);
-            break;
-        case "T":
-        case "t":
-            customer.AskTravelAgencyForTopRatedAirLines();
-            break;
-        case "R":
-        case "r":
-            customer.AskTravelAgencyForFastestRoute(Departure, Arrival);
-            break;
-        case "G":
-        case "g":
-            customer.AskForDepartureTime(Departure,Arrival);
-            break;
-        case "B":
-        case "b":
-            customer.BookTicket(Departure,Arrival,Passengers);
-            break;
-        default:
-            break;
+        Console.WriteLine("Program exited");
+        Environment.Exit(1);
     }
+    customer.Send(character);
 }
+
+Console.WriteLine("Program exited");
+Environment.Exit(1);
 
 
 
