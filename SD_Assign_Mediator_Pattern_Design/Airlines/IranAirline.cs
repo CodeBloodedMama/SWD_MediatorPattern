@@ -5,14 +5,14 @@
 //using System.Threading.Tasks;
 
 
-//namespace SD_Assign_Mediator_Pattern_Design.Airlines
-//{
-//    public class IranAirline : AbstractAirLine
-//    {
-//        public override void CancelFlight()
-//        {
-//            Console.WriteLine("Iran Airline has cancelled the flight");
-//        }
+namespace SD_Assign_Mediator_Pattern_Design.Airlines
+{
+    public class IranAirline : AbstractAirLine
+    {
+        public override void CancelFlight()
+        {
+            Console.WriteLine("Iran Airline has cancelled the flight");
+        }
         
 //        public override void GetFlightStatus()
 //        {
