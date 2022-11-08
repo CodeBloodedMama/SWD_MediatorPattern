@@ -7,7 +7,7 @@ namespace SD_Assign_Mediator_Pattern_Design.Interface
 {
     public interface ICustomer
     {
-        Customer Customer { get; set; }
+        AbstractAirLine AbstractAirLine { get; set; }
 
         void AddNumberOfPassengers(int passenger);
         void BookTickets();

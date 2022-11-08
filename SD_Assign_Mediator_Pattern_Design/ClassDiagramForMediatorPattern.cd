@@ -61,12 +61,20 @@
   </Interface>
   <Interface Name="SD_Assign_Mediator_Pattern_Design.Interface.ICustomer">
     <Position X="1.75" Y="0.75" Width="3.25" />
+    <AssociationLine Name="AbstractAirLine" Type="SD_Assign_Mediator_Pattern_Design.AbstractAirLine" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5" Y="1.094" />
+        <Point X="5.375" Y="1.094" />
+        <Point X="5.375" Y="3.75" />
+        <Point X="7.25" Y="3.75" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAEAAAAAgAAAwAAAAAAAAAAABAAAAAQIAAA=</HashCode>
+      <HashCode>AAAAAAAAAAEAAAAAgAAAwAAAAAAAAAAAFAAAAAQIAAA=</HashCode>
       <FileName>Interface\ICustomer.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Customer" />
+      <Property Name="AbstractAirLine" />
     </ShowAsAssociation>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
