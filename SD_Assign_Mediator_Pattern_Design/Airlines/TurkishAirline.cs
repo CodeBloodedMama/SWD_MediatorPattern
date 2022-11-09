@@ -84,21 +84,19 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
+        /// <summary>
+        /// Make discount for customers
+        /// </summary>
+        /// <param name="departure"></param>
+        /// <param name="arrival"></param>
+        /// <param name="passenger"></param>
+        /// <returns></returns>
         public override double MakeDiscount(string departure, string arrival, int passenger)
         {
             if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
                 Price = passenger * 100;
             Discount = ((Price * 2 / 100) + passenger * 1 / 100);
             return Discount;
-        }
-
-
-        public override double CalculatePriceForRoute(string departure, string arrival, int passenger)
-        {
-            if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
-                Price = passenger * 100;
-            return Price;
-
         }
     }
 }
