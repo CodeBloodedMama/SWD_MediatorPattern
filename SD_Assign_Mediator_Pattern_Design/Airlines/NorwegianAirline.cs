@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SD_Assign_Mediator_Pattern_Design.AbstractClass;
 
 namespace SD_Assign_Mediator_Pattern_Design.Airlines
 {
     public class NorwegianAirline : AbstractAirLine
     {
+        /// <summary>
+        /// Properties that airline uses
+        /// </summary>
         public string NameOfAirline = "Norwegian Airlines";
         public string[] Departures = { "Copenhagen", "London", "Paris", "Crotia", "India" };
         public string[] Arrivals = { "Turkiye", "Hamburg", "USA", "Frankfurt", "Billund", "Germany" };
@@ -16,6 +20,11 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
         public DateTime INDFRANK = new DateTime(2023, 03, 05);
         public double Rate = 4.4;
 
+        /// <summary>
+        /// Find and return the existing departure in this airline
+        /// </summary>
+        /// <param name="departure"></param>
+        /// <returns></returns>
         public override string FindDeparture(string departure)
         {
             for (int i = 0; i < Departures.Length; i++)
@@ -26,6 +35,11 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return "";
         }
 
+        /// <summary>
+        /// Find and return the existing arrival in this airline
+        /// </summary>
+        /// <param name="arrival"></param>
+        /// <returns></returns>
         public override string FindArrival(string arrival)
         {
             for (int i = 0; i < Arrivals.Length; i++)
@@ -36,6 +50,12 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return "";
         }
 
+        /// <summary>
+        /// Find and return the specific date for specific route 
+        /// </summary>
+        /// <param name="departure"></param>
+        /// <param name="arrival"></param>
+        /// <returns></returns>
         public override DateTime GetDepartureDate(string departure, string arrival)
         {
             if (FindDeparture(departure) == "Copenhagen" && FindArrival(arrival) == "Germany")
@@ -50,6 +70,13 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             }
         }
 
+        /// <summary>
+        /// Calcute the price of ticket for the given departure, arrival and passengers
+        /// </summary>
+        /// <param name="departure"></param>
+        /// <param name="arrival"></param>
+        /// <param name="passengers"></param>
+        /// <returns></returns>
         public override double CalculatePriceOfRoute(string departure, string arrival, int passengers)
         {
             if (departure == "Copenhagen" && arrival == "Germany")
@@ -61,6 +88,12 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
+        /// <summary>
+        /// Calculate the travel for time for specific departure and arrival route
+        /// </summary>
+        /// <param name="departure"></param>
+        /// <param name="arrival"></param>
+        /// <returns></returns>
         public override int CalculateDurationOfRoute(string departure, string arrival)
         {
             if (departure == "Copenhagen" && arrival == "Germany")
@@ -72,6 +105,12 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
+        /// <summary>
+        /// Calculate stops between departure and arrival
+        /// </summary>
+        /// <param name="departure"></param>
+        /// <param name="arrival"></param>
+        /// <returns></returns>
         public override int CalculateStopsOfRoute(string departure, string arrival)
         {
             if (departure == "Copenhagen" && arrival == "Hamburg")
@@ -83,19 +122,22 @@ namespace SD_Assign_Mediator_Pattern_Design.Airlines
             return 0;
         }
 
+        /// <summary>
+        /// Make different discounts for customers with different
+        /// numer of passengers 
+        /// </summary>
+        /// <param name="departure"></param>
+        /// <param name="arrival"></param>
+        /// <param name="passenger"></param>
+        /// <returns></returns>
         public override double MakeDiscount(string departure, string arrival, int passenger)
         {
-            if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
-                Price = passenger * 150;
-            Discount = ((Price * 2 / 100) + passenger * 1 / 100);
+            Price = passenger * 150;
+            if (departure == "Copenhagen" && arrival == "Germany" && passenger < 2)
+                Discount = ((Price * 2 / 100) + passenger * 1 / 100);
+            else if (departure == "Copenhagen" && arrival == "Germany" && passenger > 2)
+                Discount = ((Price * 2 / 100) + passenger * 3 / 100);
             return Discount;
         }
-
-        public override double CalculatePriceForRoute(string departure, string arrival, int passenger)
-        {
-            if (departure == "Copenhagen" && arrival == "Germany" && passenger > 1)
-                Price = passenger * 200;
-            return Price;
         }
-    }
 }

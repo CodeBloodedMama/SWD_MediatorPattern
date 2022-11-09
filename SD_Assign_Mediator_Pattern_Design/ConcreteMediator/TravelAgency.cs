@@ -12,6 +12,9 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
 {
     public class TravelAgency:ITravelAgency
     {
+        /// <summary>
+        /// Properties and objects created for travel to interact with customer
+        /// </summary>
         private TurkishAirLine turkishAirLine = new();
         private NorwegianAirline norwegianAirline = new ();
         private double TurkishAirlinePrice = 0.0;
@@ -21,11 +24,13 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
         private int TotalPassenger = 0;
         private int TurkishAirlineDuration = 0;
         private int NorwegianAirlineDuration = 0;
-        string Departure = "Copenhagen";
-        string Arrival = "Germany";
-        int Passengers = 3;
+     
         private string PrintResult = "";
 
+
+        /// <summary>
+        /// Set the value of customer
+        /// </summary>
         public Customer Customer;
         public Customer customer1
         {
@@ -34,22 +39,26 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
                 Customer = value;
             }
         }
-
-
-   
-        public void Send(string message, Customer customer_)
+        /// <summary>
+       /// Send message to customer/customers
+       /// </summary>
+       /// <param name="message"></param>
+       /// <param name="customer_"></param>
+        public void Send(string message, string? Departure, string? Arrival, int Passengers, Customer customer_)
         {
             string result = "";
            switch (message)
                 {
                     case "A":
                     case "a":
+                        // Find all airlines and save it inside the result varrable
                         result = FindAirLines();
+                        // Customer recieves the available airlines by invoking recieve function through customer object
                         customer_.RecievedMessageFromMediator(result);
                         break;
                     case "C":
                     case "c":
-                      result =  FindCheapestTickets(Departure,Arrival,Passengers);
+                      result =  FindCheapestTickets(Departure,Arrival, Passengers);
                       customer_.RecievedMessageFromMediator(result);
                       break;
                     case "S":
@@ -88,6 +97,13 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
                 }
         }
         
+       /// <summary>
+       /// Find the cheapest ticket between different airlines and return the result 
+       /// </summary>
+       /// <param name="departure"></param>
+       /// <param name="arrival"></param>
+       /// <param name="passengers"></param>
+       /// <returns></returns>
         public string FindCheapestTickets(string departure, string arrival, int passengers)
         {
             string CheapestPrice = "";
@@ -101,6 +117,12 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
             return CheapestPrice;
         }
 
+       /// <summary>
+       /// Find the stops in routes between different airlines and return the result
+       /// </summary>
+       /// <param name="departure"></param>
+       /// <param name="arrival"></param>
+       /// <returns></returns>
         public string FindRouteStops(string departure, string arrival)
         {
             TurkishAirlineStops = turkishAirLine.CalculateStopsOfRoute(departure, arrival);
@@ -112,6 +134,13 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
 
         }
 
+       /// <summary>
+       /// Find the shortest route for the given
+       /// departure and arrival between airlines and return the result
+       /// </summary>
+       /// <param name="departure"></param>
+       /// <param name="arrival"></param>
+       /// <returns></returns>
         public string FindShortestRute(string departure, string arrival)
         {
             TurkishAirlineDuration = turkishAirLine.CalculateDurationOfRoute(departure, arrival);
@@ -125,17 +154,33 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
 
         }
 
+       /// <summary>
+       /// Find cheapest and fastest route for the given
+       /// departure and arrival between different airlines
+       /// </summary>
+       /// <param name="departure"></param>
+       /// <param name="arrival"></param>
+       /// <param name="passengers"></param>
+       /// <returns></returns>
         public string FindCheapestAndFastestFlight(string departure, string arrival, int passengers)
         {
-          PrintResult =  FindCheapestTickets(departure,arrival,passengers) + FindShortestRute(departure, arrival);
+          PrintResult =  FindCheapestTickets(departure,arrival,passengers) +"\n"+ FindShortestRute(departure, arrival);
           return PrintResult;
         }
 
+       /// <summary>
+       /// Find airlines and return the result
+       /// </summary>
+       /// <returns></returns>
         public string FindAirLines()
         {
             return "\nList of all Airlines \n" + turkishAirLine.NameOfAirline + "\n"  +norwegianAirline.NameOfAirline;
         }
 
+       /// <summary>
+       /// Find toprated airlines and return the result
+       /// </summary>
+       /// <returns></returns>
         public string FindTopRatetAirLines()
         {
             if (turkishAirLine.Rate > norwegianAirline.Rate)
@@ -151,6 +196,12 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
         }
         
       
+       /// <summary>
+       /// Calculate the number of passenger if it smaller than 0 and
+       /// bigger than 5 then print text in the console
+       /// </summary>
+       /// <param name="NumberOfPassengers"></param>
+       /// <returns></returns>
         public int CalculateNumberOfPassenger(int NumberOfPassengers)
         {
             if (NumberOfPassengers < 0 & NumberOfPassengers > 5)
@@ -159,7 +210,12 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
             return TotalPassenger;
         }
 
-      
+      /// <summary>
+      /// Get the date for the specific route and return the result
+      /// </summary>
+      /// <param name="departure"></param>
+      /// <param name="arrival"></param>
+      /// <returns></returns>
         public string GetDepartureDateTime(string departure,string arrival)
         {
           string TurkishAirlineDepatureDate =  "Departure date for turkish airline " + Convert.ToString(turkishAirLine.GetDepartureDate(departure, arrival));
@@ -169,6 +225,14 @@ namespace SD_Assign_Mediator_Pattern_Design.Mediator
           return TurkishAirlineDepatureDate + NorwegianAirlineDepartureDate;
         }
 
+
+        /// <summary>
+        /// Find discount of flights and return the result
+        /// </summary>
+        /// <param name="Departure"></param>
+        /// <param name="Arrival"></param>
+        /// <param name="Passenger"></param>
+        /// <returns></returns>
      public string FindDiscountOnFlights(string Departure, string Arrival, int Passenger)
         {
             double TurkDisc = turkishAirLine.MakeDiscount(Departure,Arrival, Passenger);

@@ -16,6 +16,6 @@ namespace SD_Assign_Mediator_Pattern_Design.Interface
         string FindRouteStops(string departure, string arrival);
         int CalculateNumberOfPassenger(int passengers);
         string GetDepartureDateTime(string departure,string arrival);
-        void Send(string message, Customer customer_);
+        void Send(string message, string? departure, string? arrival, int passenger, Customer customer_);
     }
 }
