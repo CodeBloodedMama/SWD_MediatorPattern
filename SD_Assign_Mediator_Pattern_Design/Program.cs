@@ -32,6 +32,11 @@ while (character != "E")
         Console.WriteLine("Program exited");
         Environment.Exit(1);
     }
+    else if (character == "e")
+    {
+        Console.WriteLine("Program exited");
+        Environment.Exit(1);
+    }
     // send character to mediator to ask for info from airlines
     customer.Send(character);
 }
